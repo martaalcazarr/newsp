@@ -30,7 +30,7 @@ const Form = () => {
                     </MenuItem>
                 ))}
             </Select>
-            <Box sx={{
+            {/* <Box sx={{
                 marginTop: 2
             }}>
                 <Button
@@ -40,7 +40,7 @@ const Form = () => {
                 >
                     Search news
                 </Button>
-            </Box>
+            </Box> */}
            
         </FormControl>
     </form>

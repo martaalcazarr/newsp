@@ -1,10 +1,13 @@
-import {Grid, Typography} from "@mui/material"
+import {Grid, Typography, Pagination, Stack} from "@mui/material"
 import useNews from "../hooks/useNews"
 import News from "./News"
 
 const NewsList = () => {
 
-    const {news} = useNews()
+    const {news, totalNews, handleChangePage, page} = useNews()
+    //para redondear hacia arriba con math.ceil
+    const totalPages = Math.ceil(totalNews / 20)
+    
 
   return (
     <>
@@ -17,7 +20,10 @@ const NewsList = () => {
         Latest News 
     </Typography>
 
-    <Grid>
+    <Grid
+        container
+        spacing={2}
+    >
         {news.map(news => (
             <News
                 key={news.url}
@@ -25,6 +31,23 @@ const NewsList = () => {
             />
         ))}
     </Grid>
+    <Stack
+        sx={{
+            marginY: 5
+        }}
+        spacing={2}
+        direction={'row'}
+        justifyContent={'center'}
+        alignItems={'center'}
+    >
+        <Pagination 
+            count={totalPages} 
+            color="secondary" 
+            onChange={handleChangePage}
+            page={page}
+        />
+    </Stack>
+    
     </>
   )
 }
