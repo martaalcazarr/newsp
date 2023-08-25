@@ -17,7 +17,10 @@ const NewsList = () => {
         Latest News 
     </Typography>
 
-    <Grid>
+    <Grid
+        container
+        spacing={2}
+    >
         {news.map(news => (
             <News
                 key={news.url}
