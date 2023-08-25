@@ -4,7 +4,7 @@ import News from "./News"
 
 const NewsList = () => {
 
-    const {news, totalNews} = useNews()
+    const {news, totalNews, handleChangePage, page} = useNews()
     //para redondear hacia arriba con math.ceil
     const totalPages = Math.ceil(totalNews / 20)
     
@@ -40,7 +40,12 @@ const NewsList = () => {
         justifyContent={'center'}
         alignItems={'center'}
     >
-        <Pagination count={totalPages} color="secondary" />
+        <Pagination 
+            count={totalPages} 
+            color="secondary" 
+            onChange={handleChangePage}
+            page={page}
+        />
     </Stack>
     
     </>
